@@ -170,7 +170,7 @@ public class Main {
     }
 
     private static void repeatedContacts(ContactBook cBook) {
-        if (cBook.hasContactsWithSameNumber() > 0) {
+        if (cBook.ContactsWithSameNumber() > 0) {
             System.out.println(SAME_PHONE);	}
 
         else {System.out.println(MISSING_PHONE); }
