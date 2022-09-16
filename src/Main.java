@@ -24,9 +24,9 @@ public class Main {
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
-    public static final String CONTACT_MISSING = "Phone number does not exist";
-    public static final String SAME_PHONE = "There are contacts that share phone numbers";
-    public static final String MISSING_PHONE = "All contacts have different phone numbers";
+    public static final String CONTACT_MISSING = "Phone number does not exist.";
+    public static final String SAME_PHONE = "There are contacts that share phone numbers.";
+    public static final String MISSING_PHONE = "All contacts have different phone numbers.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
 
@@ -59,7 +59,7 @@ public class Main {
                     listAllContacts(cBook);
                     break;
                 case GIVE_NUMBER:
-                    giveNumber(cBook);
+                    giveNumber(in, cBook);
                     break;
                 case REPEATED_CONTACTS:
                     repeatedContacts(cBook);
@@ -159,8 +159,14 @@ public class Main {
         else System.out.println(BOOK_EMPTY);
     }
 
-    private static void giveNumber(ContactBook cBook) {
-
+    private static void giveNumber(Scanner in, ContactBook cBook) {
+        int phone = in.nextInt();
+        in.nextLine();
+        if(cBook.hasContactByPhone(phone)) {
+            System.out.println(cBook.getContact(phone));
+        }
+        else
+            System.out.println(CONTACT_MISSING);
     }
 
     private static void repeatedContacts(ContactBook cBook) {
