@@ -3,7 +3,7 @@ import contactBook.ContactBook;
 
 import java.util.Scanner;
 
-//test
+//test pull
 public class Main {
     //Constantes que definem os comandos
     public static final String ADD_CONTACT    = "AC";
@@ -13,6 +13,8 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
+    public static final String GIVE_NUMBER = "GN";
+    private static final String REPEATED_CONTACTS = "EP";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -22,6 +24,9 @@ public class Main {
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
+    public static final String CONTACT_MISSING = "Phone number does not exist";
+    public static final String SAME_PHONE = "There are contacts that share phone numbers";
+    public static final String MISSING_PHONE = "All contacts have different phone numbers";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
 
@@ -52,6 +57,12 @@ public class Main {
                     break;
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
+                    break;
+                case GIVE_NUMBER:
+                    giveNumber(cBook);
+                    break;
+                case REPEATED_CONTACTS:
+                    repeatedContacts(cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -146,5 +157,13 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+
+    private static void giveNumber(ContactBook cBook) {
+
+    }
+
+    private static void repeatedContacts(ContactBook cBook) {
+
     }
 }
